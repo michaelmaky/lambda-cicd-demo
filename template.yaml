@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Lambda function with API Gateway
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  LambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: LambdaAPI
+      Handler: index.handler
+      Runtime: nodejs12.x
+      Events:
+        HttpPost:
+          Type: Api
+          Properties:
+            Path: "/test"
+            Method: get
